@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D TikTok 护肝科普视频创作者作品集 | Content Director & Developer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fbf6',
+                            100: '#dcf6ea',
+                            200: '#bcecd7',
+                            300: '#8cddba',
+                            400: '#54c498',
+                            500: '#32a87a',
+                            600: '#238860',
+                            700: '#1d6d4f',
+                            800: '#1a5740',
+                            900: '#164835',
+                            950: '#0c291f',
+                        },
+                        dark: {
+                            50: '#f6f6f9',
+                            100: '#ececf3',
+                            200: '#d5d5e3',
+                            300: '#b1b1ca',
+                            400: '#8585aa',
+                            500: '#63638d',
+                            600: '#4e4e75',
+                            700: '#3f3f60',
+                            800: '#232338',
+                            900: '#121220',
+                            950: '#07070d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #07070d;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(50, 168, 122, 0.1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(99, 99, 141, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass {
+            background: rgba(23, 23, 41, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-hover:hover {
+            background: rgba(23, 23, 41, 0.85);
+            border-color: rgba(50, 168, 122, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(50, 168, 122, 0.2);
+            transform: translateY(-4px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(50, 168, 122, 0.5);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07070d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232338;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #32a87a;
+        }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 w-full glass border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-emerald-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/20">
+                <i class="fa-solid fa-file-video text-xl"></i>
+            </div>
+            <div>
+                <span class="font-bold text-lg text-white block tracking-wide">LIVER-CARE 3D</span>
+                <span class="text-xs text-brand-400 font-medium tracking-widest uppercase font-mono">PORTFOLIO</span>
+            </div>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <a href="#overview" class="text-gray-400 hover:text-brand-400 transition-colors">概览</a>
+            <a href="#clips" class="text-gray-400 hover:text-brand-400 transition-colors">成片展示</a>
+            <a href="#skills" class="text-gray-400 hover:text-brand-400 transition-colors">核心技能</a>
+            <a href="#monsters" class="text-gray-400 hover:text-brand-400 transition-colors">三维病菌画廊</a>
+            <a href="#anatomy" class="text-gray-400 hover:text-brand-400 transition-colors">肝脏场景</a>
+            <a href="#scripts" class="text-gray-400 hover:text-brand-400 transition-colors">脚本方案</a>
+            <a href="#code" class="text-gray-400 hover:text-brand-400 transition-colors">自动化架构</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <a href="https://github.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-300 hover:text-white transition-all">
+                <i class="fa-brands fa-github text-lg"></i>
+            </a>
+            <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                印尼 & 越南市场
+            </span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="overview" class="relative py-20 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                <span>TikTok 3D 科普视频·全流程策划与开发</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                将医学科普转化为<br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-400 text-glow">
+                    3D 爆款短视频
+                </span>
+            </h1>
+            
+            <p class="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+                我是一位融合<b>内容创意导演</b>与<b>自动化开发能力</b>的 TikTok 出海短视频专家。专注于印尼和越南市场，围绕“肝脏健康”开发了一整套“科普分析 - 双语脚本编写 - 3D 泥塑病菌设计 - Python 自动化生图与剪辑”的工业级高效率出片工作流。
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+                <div class="glass px-5 py-3 rounded-2xl flex items-center space-x-3">
+                    <span class="text-2xl font-bold text-brand-400 font-mono">18+</span>
+                    <span class="text-xs text-gray-400 leading-tight">设计生成<br>3D病菌怪兽</span>
+                </div>
+                <div class="glass px-5 py-3 rounded-2xl flex items-center space-x-3">
+                    <span class="text-2xl font-bold text-emerald-400 font-mono">30+</span>
+                    <span class="text-xs text-gray-400 leading-tight">高转化率<br>视频脚本开发</span>
+                </div>
+                <div class="glass px-5 py-3 rounded-2xl flex items-center space-x-3">
+                    <span class="text-2xl font-bold text-teal-400 font-mono">100%</span>
+                    <span class="text-xs text-gray-400 leading-tight">Python 驱动<br>AI 生成工作流</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="#clips" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-500 text-white font-semibold text-center hover:shadow-lg hover:shadow-brand-500/25 transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-play"></i>
+                    <span>观摩成片作品</span>
+                </a>
+                <a href="#monsters" class="px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold text-center border border-white/10 transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-ghost text-brand-400"></i>
+                    <span>浏览病菌画廊</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="lg:col-span-5 relative flex justify-center">
+            <!-- Decorative Visual / Floating Cards -->
+            <div class="relative w-full max-w-[400px] h-[450px]">
+                <!-- Outer glow -->
+                <div class="absolute inset-0 bg-brand-500/20 rounded-3xl filter blur-3xl opacity-50 -z-10"></div>
+                
+                <!-- Main Card -->
+                <div class="absolute inset-0 glass rounded-3xl p-6 border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3.5 h-3.5 rounded-full bg-red-500"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-yellow-500"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-green-500"></span>
+                        </div>
+                        <span class="text-xs text-brand-400 font-mono">FLUX_GENERATOR.py</span>
+                    </div>
+                    
+                    <!-- Simulating a rendered monster mockup -->
+                    <div class="my-4 flex-1 flex flex-col justify-center items-center relative group">
+                        <div class="w-44 h-44 rounded-2xl bg-dark-900 border border-brand-500/30 flex items-center justify-center p-2 overflow-hidden shadow-inner">
+                            <img src="output/character_sheets/dehidrasi_monster.png" onerror="handleImageError(this, 'dehidrasi')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-110 transition-transform duration-500" alt="Monster Preview">
+                        </div>
+                        <span class="mt-3 text-xs bg-dark-950 px-3 py-1 rounded-full text-brand-400 border border-brand-500/20 font-mono">
+                            Monster Dehidrasi (三视图画板)
+                        </span>
+                    </div>
+
+                    <div class="bg-dark-950 p-4 rounded-2xl border border-white/5 space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-500">STYLE:</span>
+                            <span class="text-emerald-400 font-medium">Pixar Claymation (粘土风格)</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-500">ENGINE:</span>
+                            <span class="text-brand-400 font-mono font-medium">FLUX.1-schnell</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-500">OUTPUT:</span>
+                            <span class="text-gray-300 font-mono">front/side/back views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating mini elements -->
+                <div class="absolute -top-6 -right-6 glass p-3 rounded-2xl border border-white/10 shadow-lg flex items-center space-x-2 animate-bounce" style="animation-duration: 4s;">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-500">
+                        <i class="fa-solid fa-burger"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-gray-500 font-bold">MONSTER DESIGN</div>
+                        <div class="text-xs text-white font-bold">Gorengan (油炸怪物)</div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -left-6 glass p-3 rounded-2xl border border-white/10 shadow-lg flex items-center space-x-2 animate-bounce" style="animation-duration: 5s; animation-delay: 1s;">
+                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400">
+                        <i class="fa-solid fa-droplet animate-pulse"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-gray-500 font-bold">AUDIENCE RETENTION</div>
+                        <div class="text-xs text-white font-bold">黄金前3s Hook唤醒</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section id="clips" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span class="text-brand-400 font-semibold font-mono text-xs uppercase tracking-widest">3D TikTok Rendered Clips</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">最终视频作品展厅</h2>
+            <p class="text-gray-400">
+                通过 Python 自动化音视频管线（结合 TTS 配音、FLUX 图帧资产和精确 SRT 字幕）合成的 TikTok 原生视频成片。下方可在网页内直接播放观摩。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            <!-- Video 1 -->
+            <div class="glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group">
+                <div class="relative w-full aspect-[9/16] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden mb-4 shadow-inner">
+                    <video class="w-full h-full object-cover" controls preload="metadata" onerror="handleVideoError(this, '111.mp4')">
+                        <source src="output/clips/111.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback UI overlay -->
+                    <div class="video-error-overlay absolute inset-0 bg-dark-950/90 hidden flex-col justify-center items-center p-4 text-center space-y-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 text-3xl"></i>
+                        <span class="text-xs font-bold text-white">本地视频未加载</span>
+                        <p class="text-[9px] text-gray-400 leading-snug">
+                            分享此网页给他人时，由于相对路径限制，视频需要一同打包分享或部署到 GitHub Pages。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] text-brand-400 font-mono font-semibold uppercase">Topic 01: Dehidrasi</span>
+                    <h4 class="font-bold text-white text-sm">轻度脱水与毒素积聚</h4>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        揭秘印尼用户不爱喝纯净水对肝细胞造成的萎缩负担。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group">
+                <div class="relative w-full aspect-[9/16] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden mb-4 shadow-inner">
+                    <video class="w-full h-full object-cover" controls preload="metadata" onerror="handleVideoError(this, '222.mp4')">
+                        <source src="output/clips/222.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback UI overlay -->
+                    <div class="video-error-overlay absolute inset-0 bg-dark-950/90 hidden flex-col justify-center items-center p-4 text-center space-y-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 text-3xl"></i>
+                        <span class="text-xs font-bold text-white">本地视频未加载</span>
+                        <p class="text-[9px] text-gray-400 leading-snug">
+                            分享此网页给他人时，由于相对路径限制，视频需要一同打包分享或部署到 GitHub Pages。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] text-emerald-400 font-mono font-semibold uppercase">Topic 02: Begadang</span>
+                    <h4 class="font-bold text-white text-sm">深夜熬夜对肝脏影响</h4>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        展示熬夜对肝脏排毒黄金周期的阻碍及疲劳机制。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group">
+                <div class="relative w-full aspect-[9/16] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden mb-4 shadow-inner">
+                    <video class="w-full h-full object-cover" controls preload="metadata" onerror="handleVideoError(this, '555.mp4')">
+                        <source src="output/clips/555.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback UI overlay -->
+                    <div class="video-error-overlay absolute inset-0 bg-dark-950/90 hidden flex-col justify-center items-center p-4 text-center space-y-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 text-3xl"></i>
+                        <span class="text-xs font-bold text-white">本地视频未加载</span>
+                        <p class="text-[9px] text-gray-400 leading-snug">
+                            分享此网页给他人时，由于相对路径限制，视频需要一同打包分享或部署到 GitHub Pages。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] text-teal-400 font-mono font-semibold uppercase">Topic 03: Gorengan</span>
+                    <h4 class="font-bold text-white text-sm">高油脂街头油炸食品</h4>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        针对印尼人重度油炸饮食习惯，剖析脂肪肝形成的微观画面。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group">
+                <div class="relative w-full aspect-[9/16] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden mb-4 shadow-inner">
+                    <video class="w-full h-full object-cover" controls preload="metadata" onerror="handleVideoError(this, '888.mp4')">
+                        <source src="output/clips/888.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback UI overlay -->
+                    <div class="video-error-overlay absolute inset-0 bg-dark-950/90 hidden flex-col justify-center items-center p-4 text-center space-y-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 text-3xl"></i>
+                        <span class="text-xs font-bold text-white">本地视频未加载</span>
+                        <p class="text-[9px] text-gray-400 leading-snug">
+                            分享此网页给他人时，由于相对路径限制，视频需要一同打包分享或部署到 GitHub Pages。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] text-cyan-400 font-mono font-semibold uppercase">Topic 04: Sedentary</span>
+                    <h4 class="font-bold text-white text-sm">Kaum Rebahan 久坐危害</h4>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        展现缺乏活动导致的慢速新陈代谢与脂质沉积。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group">
+                <div class="relative w-full aspect-[9/16] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden mb-4 shadow-inner">
+                    <video class="w-full h-full object-cover" controls preload="metadata" onerror="handleVideoError(this, '1111.mp4')">
+                        <source src="output/clips/1111.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback UI overlay -->
+                    <div class="video-error-overlay absolute inset-0 bg-dark-950/90 hidden flex-col justify-center items-center p-4 text-center space-y-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 text-3xl"></i>
+                        <span class="text-xs font-bold text-white">本地视频未加载</span>
+                        <p class="text-[9px] text-gray-400 leading-snug">
+                            分享此网页给他人时，由于相对路径限制，视频需要一同打包分享或部署到 GitHub Pages。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] text-indigo-400 font-mono font-semibold uppercase">Topic 05: Stress</span>
+                    <h4 class="font-bold text-white text-sm">高精神压力与毒素积压</h4>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        剖析精神压力大如何引起体内“热毒上火”并负荷肝窦过滤。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Skills Section -->
+    <section id="skills" class="py-20 bg-dark-950/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-brand-400 font-semibold font-mono text-xs uppercase tracking-widest">Core Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">驱动出海短视频的方法论 & 核心技能</h2>
+                <p class="text-gray-400">结合严谨的学术内核、创意的视觉传达、以及现代的开发脚本工具，构建可复制的高留存率短视频生产线。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-400 text-xl">
+                            <i class="fa-solid fa-earth-asia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">1. 本地化文化分析与痛点研究</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            深入挖掘东南亚（印尼、越南）本地化饮食和作息文化。针对印尼人不爱喝水偏爱 Es Teh（冰茶）、酷爱 Gorengan（油炸食品）、习惯 Begadang（熬夜）等真实痛点，用病菌拟人化机制打破认知壁垒。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">印尼 / 越南特色分析</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">痛点挖掘</span>
+                    </div>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">2. 60秒结构化高留存脚本设计</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            遵循严密的 TikTok 5阶段留存漏斗结构：0-3s Hook（震撼视听强拉开头）→ 3-15s 症状共鸣（痛点引入）→ 15-30s 科学机制（病菌怪兽肆虐）→ 30-45s 草本方案（解决方案）→ 45-60s CTA（引导决策与带货）。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">黄金前3秒Hook</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">中印/越文翻译对照</span>
+                    </div>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-xl">
+                            <i class="fa-solid fa-closed-captioning"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">3. 独立字幕导出与工程化提效</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            遵循字幕独立输出原则，编写脚本自动将脚本的配音解耦，提取并规整为单句无冗余标点的纯文本 .txt 字幕文件。高度适配 CapCut 等音视频剪辑软件，大幅节约后期校对时间。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">字幕解耦导出</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">剪辑软件友好型格式</span>
+                    </div>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">4. 3D 病菌怪物原画与三视图设计</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            采用皮克斯/粘土手办（Pixar Claymation）美术风格。为新脚本量身定制独特的病菌代表（如熬夜怪、糖分怪、油炸怪、脱水怪等），生成包含前、侧、后三个角度的正交视图画板，便于3D建模与定格动画使用。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">Pixar 粘土风格</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">三视图原画 Turnaround</span>
+                    </div>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl">
+                            <i class="fa-solid fa-code-fork"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">5. Python 集成式生图自动化</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            开发一整套基于 Python 的 AI 图片生成框架。对接 FLUX 引擎 API，设计了重试机制、错误处理与图片文件自动分类保存（按角色面板与微观场景分别分类归档）。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">API 自动化调用</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">重试与容错机制</span>
+                    </div>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 glass-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl">
+                            <i class="fa-solid fa-photo-film"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">6. 多模态视频分镜与音视频合成</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            构建多模态合成引擎，将生成的音频解说（TTS）、图片帧资产、以及 SRT 字幕，通过 Python moviepy 代码进行自动化视频时间轴拼接和合成，实现工业级粗剪流水线。
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">多源混音与视频合成</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-900 text-xs text-gray-300 font-mono">MoviePy 自动化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Turnaround Gallery Section -->
+    <section id="monsters" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="space-y-4">
+                <span class="text-brand-400 font-semibold font-mono text-xs uppercase tracking-widest">3D Pathology Clay Models</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">病菌怪物三视图画廊</h2>
+                <p class="text-gray-400 max-w-2xl">根据“每期脚本量身定制全新病菌”规则，使用 FLUX.1 生成的 3D 粘土风格、正交三维角色原画模型面板。</p>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="flex gap-2 mt-6 md:mt-0 overflow-x-auto pb-2">
+                <button onclick="filterMonsters('all')" class="monster-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-brand-500 text-white transition-all">
+                    全部角色
+                </button>
+                <button onclick="filterMonsters('indonesia')" class="monster-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all">
+                    印尼系列 (9种)
+                </button>
+                <button onclick="filterMonsters('tongrentang')" class="monster-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all">
+                    同仁堂原版 (6种)
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="monster-grid">
+            <!-- Monster 1: Dehidrasi -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('dehidrasi')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/dehidrasi_monster.png" onerror="handleImageError(this, 'dehidrasi')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Dehidrasi">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-amber-500/20 text-amber-400 text-[10px] font-mono border border-amber-500/30">
+                        DEHYDRATION
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Dehidrasi (缺水/龟裂怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        浅褐色、身上布满龟裂泥土纹路。耷拉着焦渴双眼，起皮裂开的嘴唇，手持空破水杯。吸干肝细胞水分。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: dehidrasi_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 2: Toksin -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('toksin')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/toksin_monster.png" onerror="handleImageError(this, 'toksin')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Toksin">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                        TOXIN ACCUMULATION
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Toksin (毒素堆积怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        暗绿色、黏糊糊的粘液怪物。身上不断冒出绿色气泡，留下恶臭痕迹，得意地堵塞肝脏排毒口。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: dehidrasi_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 3: Darah Kental -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('darah_kental')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/darah_kental_monster.png" onerror="handleImageError(this, 'darah_kental')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Darah Kental">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-red-500/20 text-red-400 text-[10px] font-mono border border-red-500/30">
+                        VISCOUS BLOOD
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Darah Kental (粘稠血液怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        深红色、胶状、拉丝糖浆质感。行动迟缓，死死粘住正常流动的红细胞，拖慢血循环。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: dehidrasi_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 4: Gorengan -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('gorengan')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/gorengan_monster.png" onerror="handleImageError(this, 'gorengan')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Gorengan">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-amber-600/20 text-amber-500 text-[10px] font-mono border border-amber-600/30">
+                        OILY FOOD
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Gorengan (油炸食物怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        金黄色、多油的脆皮质感。手里抱着一个棕榈油油桶，把健康的肝细胞淋得满身粘腻，阻碍代谢。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: new_monsters_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 5: Rebahan -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('rebahan')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/rebahan_monster.png" onerror="handleImageError(this, 'rebahan')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Rebahan">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-blue-500/20 text-blue-400 text-[10px] font-mono border border-blue-500/30">
+                        SEDENTARY
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Rebahan (懒散久坐怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        深灰色和海蓝色融合的“沙发瘫”黏土小人。手里捧着薯片，身体和座椅融为一体，动作极其迟缓。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: sedentary_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 6: Sugar -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="indonesia" onclick="openMonsterModal('sugar')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/sugar_monster.png" onerror="handleImageError(this, 'sugar')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Sugar">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-pink-500/20 text-pink-400 text-[10px] font-mono border border-pink-500/30">
+                        HIGH SUGAR
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Sugar (高糖饮料怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        亮粉色、黏答答的硬糖质感怪物。全身包裹着糖浆气泡，得意洋洋地对健康的粉色肝细胞泼洒彩色糖粒。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: new_monsters_60s</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 7: Fat -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="tongrentang" onclick="openMonsterModal('fat')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/fat_monster.png" onerror="handleImageError(this, 'fat')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Fat">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-yellow-500/20 text-yellow-400 text-[10px] font-mono border border-yellow-500/30">
+                        FATTY LIVER
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Fat (脂肪堆积怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        臃肿的淡黄色黏土脂肪怪。体态笨重，怀里搂着黄油，所经之处都会将脂肪斑块死死粘附在肝血管壁上。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: TRT_herb_tea</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 8: Late Night -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="tongrentang" onclick="openMonsterModal('late_night')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/late_night_monster.png" onerror="handleImageError(this, 'late_night')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Late Night">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-purple-500/20 text-purple-400 text-[10px] font-mono border border-purple-500/30">
+                        SLEEP DEPRIVATION
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Late Night (深夜熬夜怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        深紫色、带着严重黑眼圈的猫头鹰黏土化身。打着哈欠，手捧电子屏幕，正在用虚弱红线勒紧健康的肝细胞。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: TRT_herb_tea</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monster 9: Internal Heat -->
+            <div class="monster-card glass rounded-3xl border border-white/5 p-4 flex flex-col justify-between group cursor-pointer" data-category="tongrentang" onclick="openMonsterModal('internal_heat')">
+                <div class="relative w-full aspect-[4/3] rounded-2xl bg-dark-900 border border-white/5 overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="output/character_sheets/internal_heat_monster.png" onerror="handleImageError(this, 'internal_heat')" class="w-full h-full object-contain rounded-xl transform group-hover:scale-105 transition-all duration-500" alt="Monster Internal Heat">
+                    <span class="absolute top-3 left-3 px-2 py-1 rounded bg-red-500/20 text-red-400 text-[10px] font-mono border border-red-500/30">
+                        INTERNAL HEAT
+                    </span>
+                </div>
+                <div class="space-y-2 px-2">
+                    <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Monster Internal Heat (体内上火/热毒怪)</h3>
+                    <p class="text-xs text-gray-400 line-clamp-2">
+                        通体橙红、头顶冒火星的愤怒黏土小人。面目狰狞，手拿红叉标记，口吐烟雾熏烤健康的肝脏微环境。
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-gray-500">
+                        <span>SCRIPT: TRT_herb_tea</span>
+                        <span class="text-brand-400">查看Prompt <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Anatomy and Protection Scenes -->
+    <section id="anatomy" class="py-20 bg-dark-950/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-emerald-400 font-semibold font-mono text-xs uppercase tracking-widest">Macro & Micro 3D Scenes</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">宏观解剖与微观护肝场景库</h2>
+                <p class="text-gray-400">针对视频的 Hook 场景和解决方案 adegan，开发的高精度三维宏观肝脏剖面以及治愈系琥珀金色流体冲刷场景。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Scene 1: Anatomy Cutaway -->
+            <div class="glass rounded-3xl border border-white/5 overflow-hidden group">
+                <div class="relative aspect-[16/10] bg-dark-900 overflow-hidden flex items-center justify-center p-2">
+                    <img src="output/scenes/liver_anatomy_cutaway_v2.png" onerror="handleSceneError(this, 'anatomy_cutaway')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" alt="Liver Anatomy Cutaway">
+                    <span class="absolute bottom-3 left-3 bg-dark-950/80 px-3 py-1 rounded-full text-[10px] font-mono text-brand-400 border border-brand-500/20">
+                            人体右上腹剖面 / 3D医学级
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-white text-base">肝脏解剖剖面微推镜头 (Anatomy Cutaway)</h4>
+                        <p class="text-xs text-gray-400">
+                            用于视频的黄金前3秒黄金 Hook。高对比度戏剧性布光，镜头穿透皮肤快速突入肝脏。
+                        </p>
+                    </div>
+                </div>
+
+            <!-- Scene 2: Protection Scene -->
+            <div class="glass rounded-3xl border border-white/5 overflow-hidden group">
+                <div class="relative aspect-[16/10] bg-dark-900 overflow-hidden flex items-center justify-center p-2">
+                    <img src="output/scenes/liver_protection_main_scene.png" onerror="handleSceneError(this, 'protection_stream')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" alt="Liver Protection Scene">
+                    <span class="absolute bottom-3 left-3 bg-dark-950/80 px-3 py-1 rounded-full text-[10px] font-mono text-brand-400 border border-brand-500/20">
+                            金色清流冲刷 / 治愈解压
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-white text-base">治愈系金黄色草本茶流体 (Protection Stream)</h4>
+                        <p class="text-xs text-gray-400">
+                            用于解决方案（Solution）环节。金色光芒流体席卷整个微观细胞环境，净化绿色毒液和冰冷怪兽。
+                        </p>
+                    </div>
+                </div>
+
+            <!-- Scene 3: Liver Torso -->
+            <div class="glass rounded-3xl border border-white/5 overflow-hidden group">
+                <div class="relative aspect-[16/10] bg-dark-900 overflow-hidden flex items-center justify-center p-2">
+                    <img src="output/scenes/liver_dissected_torso.png" onerror="handleSceneError(this, 'dissected_torso')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" alt="Liver Torso">
+                        <span class="absolute bottom-3 left-3 bg-dark-950/80 px-3 py-1 rounded-full text-[10px] font-mono text-brand-400 border border-brand-500/20">
+                            解剖躯干正视图 / 科普分析
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-white text-base">3D 人体躯干器官展示 (Dissected Torso)</h4>
+                        <p class="text-xs text-gray-400">
+                            宏观科普分析画面，用虚幻引擎 5 风格的灯光质感，渲染半剖的人体胸腔以准确定位肝胆位置。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Script Showcase Section -->
+    <section id="scripts" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span class="text-brand-400 font-semibold font-mono text-xs uppercase tracking-widest">Clean Script Layout</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">爆款分镜脚本精选演示</h2>
+            <p class="text-gray-400">支持独立字幕剥离与 3D 生成 prompt 整合的标准视频脚本。以印尼《脱水与毒素堆积》脚本为例：</p>
+        </div>
+
+        <div class="glass rounded-3xl border border-white/10 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+            <!-- Sidebar: Navigation -->
+            <div class="lg:col-span-4 bg-dark-950/60 border-r border-white/5 p-6 space-y-4">
+                <h4 class="font-bold text-xs uppercase text-gray-500 tracking-wider font-mono">脚本分镜导航</h4>
+                
+                <div class="space-y-2" id="script-nav-container">
+                    <button onclick="showScriptShot(1)" id="shot-btn-1" class="w-full text-left p-3.5 rounded-xl border border-brand-500/30 bg-brand-500/10 text-brand-400 font-medium transition-all flex justify-between items-center text-xs">
+                        <span>镜头 1 (0-5s): 黄金 Hook 突入</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(2)" id="shot-btn-2" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 2 (5-15s): 缺水怪物登场</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(3)" id="shot-btn-3" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 3 (15-25s): 毒素堆积怪物</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(4)" id="shot-btn-4" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 4 (25-35s): 粘稠血液怪物</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(5)" id="shot-btn-5" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 5 (35-45s): 金色茶饮冲刷</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(6)" id="shot-btn-6" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 6 (45-52s): 脏器净化治愈</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button onclick="showScriptShot(7)" id="shot-btn-7" class="w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs">
+                        <span>镜头 7 (52-60s): 印尼女性微笑CTA</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="lg:col-span-8 p-8 space-y-6" id="script-content-container">
+                <!-- Content will dynamically update using JS -->
+                <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                    <span class="px-3 py-1 rounded bg-brand-500/20 text-brand-400 text-xs font-mono border border-brand-500/30">0 - 5 SECONDS</span>
+                    <span class="text-xs text-gray-500 font-mono">SHOT_1_METADATA</span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">中文 Seedance 2.0 Prompt:</h5>
+                        <div class="bg-dark-900 border border-white/5 p-4 rounded-2xl text-xs text-gray-300 font-mono leading-relaxed select-all">
+                            电影级的3D医学动画。镜头从一个年轻印尼男性的右上腹部特写开始，然后通过皮肤上干净的剖面窗口快速放大（微观推镜头）进入肝脏。3D肝脏呈暗红褐色，表面干燥并带有一些干裂的细纹，微微颤抖。昏暗、戏剧性的低光环境，虚幻引擎5渲染，极高细节，4K分辨率。
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">印尼语旁白配音 (VO):</h5>
+                            <div class="bg-brand-500/5 border border-brand-500/10 p-4 rounded-2xl text-sm text-brand-400 font-medium">
+                                Awas! Kebiasaan jarang minum air putih bisa bikin sel hatimu kekeringan and diserang 3 monster ini!
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">旁白中文翻译:</h5>
+                            <div class="bg-dark-900 border border-white/5 p-4 rounded-2xl text-xs text-gray-400">
+                                小心！不爱喝水会让你肝细胞干枯，并遭到这3个怪物的袭击！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subtitle extraction block -->
+                <div class="bg-dark-950 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
+                            <i class="fa-solid fa-file-export"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-500 font-mono font-bold">EXTRACTED SUBTITLE (output/scripts/)</div>
+                            <div class="text-xs text-white font-mono" id="current-subtitle-txt">Awas! Kebiasaan jarang minum air putih bisa bikin sel hatimu kekeringan and diserang 3 monster ini!</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">LINE 1</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Architecture Section -->
+    <section id="code" class="py-20 bg-dark-950/60 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-brand-400 font-semibold font-mono text-xs uppercase tracking-widest">Automation Infrastructure</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">以代码提效内容制作</h2>
+                <p class="text-gray-400">
+                    除了进行创意内容设计外，我还开发了一套脚本框架，可基于本地大模型及图文生成 API 批量处理角色模型图导出与视频拼接。这极大地压缩了策划到素材交付的时间成本。
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 mt-1 shrink-0">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">FLUX API 图像批处理脚本</h5>
+                            <p class="text-xs text-gray-500 mt-1">支持提示词拼接、三视图参数优化与一键执行生成，将原本手动的图画设计工作自动流化。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mt-1 shrink-0">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">30天科普视频脚本批量生产脚本</h5>
+                            <p class="text-xs text-gray-500 mt-1">集成大语言模型（如 Gemini），根据本地化痛点模版自动拓展产出 30 天高转化脚本包，并且同步导出其字幕文件。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 mt-1 shrink-0">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">MoviePy 自动化音画视频合成器</h5>
+                            <p class="text-xs text-gray-500 mt-1">读取生成的音频旁白、图片资产及字幕文件，并运用 MoviePy 模块根据时间戳生成对齐的初剪视频成品。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code display panel -->
+            <div class="lg:col-span-6 glass rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+                <div class="flex justify-between items-center bg-dark-950 px-6 py-4 border-b border-white/5">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-3.5 h-3.5 rounded-full bg-red-500/80"></span>
+                        <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/80"></span>
+                        <span class="w-3.5 h-3.5 rounded-full bg-green-500/80"></span>
+                    </div>
+                    <span class="text-xs text-gray-500 font-mono">flux_client.py</span>
+                </div>
+                <div class="p-6 bg-dark-950/80 font-mono text-[11px] text-gray-400 leading-relaxed overflow-x-auto max-h-[350px] scrollbar-thin">
+                    <pre><code class="language-python"><span class="text-brand-500">import</span> os
+<span class="text-brand-500">import</span> requests
+<span class="text-brand-500">import</span> time
+
+<span class="text-emerald-500"># 带有重试机制的 FLUX.1 生成代码</span>
+<span class="text-brand-500">def</span> <span class="text-teal-400">generate_image_with_retry</span>(prompt, output_path, retries=<span class="text-amber-500">3</span>, delay=<span class="text-amber-500">5</span>):
+    url = <span class="text-amber-600">"https://api.pollinations.ai/p/"</span> + requests.utils.quote(prompt)
+    
+    <span class="text-brand-500">for</span> attempt <span class="text-brand-500">in</span> <span class="text-teal-400">range</span>(retries):
+        <span class="text-brand-500">try</span>:
+            print(f<span class="text-amber-600">"Sending request to Pollinations (Attempt {attempt+1}/{retries})..."</span>)
+            response = requests.get(url, timeout=<span class="text-amber-500">30</span>)
+            
+            <span class="text-brand-500">if</span> response.status_code == <span class="text-amber-500">200</span>:
+                <span class="text-brand-500">with</span> <span class="text-teal-400">open</span>(output_path, <span class="text-amber-600">'wb'</span>) <span class="text-brand-500">as</span> f:
+                    f.write(response.content)
+                <span class="text-brand-500">return</span> <span class="text-brand-500">True</span>
+            <span class="text-brand-500">else</span>:
+                print(f<span class="text-amber-600">"Error: Status code {response.status_code}"</span>)
+        <span class="text-brand-500">except</span> Exception <span class="text-brand-500">as</span> e:
+            print(f<span class="text-amber-600">"Exception during image generation: {str(e)}"</span>)
+            
+        time.sleep(delay)
+    <span class="text-brand-500">return</span> <span class="text-brand-500">False</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-white/5 py-12 px-6 md:px-12 text-center space-y-4">
+        <div class="flex justify-center items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white">
+                <i class="fa-solid fa-file-video text-sm"></i>
+            </div>
+            <span class="font-bold text-white tracking-wide">LIVER-CARE 3D</span>
+        </div>
+        <p class="text-xs text-gray-500">
+            &copy; 2026 Liver-Care 3D Team. Powered by AI and Automation.
+        </p>
+        <p class="text-[10px] text-gray-600">
+            注：本站已集成云端重定向防失效机制。若相对路径资产不存在，系统将自动云端生成三视图原画。
+        </p>
+    </footer>
+
+    <!-- Monster Modal (Detail View) -->
+    <div id="monster-modal" class="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass max-w-2xl w-full rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex flex-col">
+            <div class="flex justify-between items-center bg-dark-950 px-6 py-4 border-b border-white/5">
+                <h4 class="font-bold text-white text-base" id="modal-title">怪物详情</h4>
+                <button onclick="closeMonsterModal()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-6">
+                <!-- Large Image Preview -->
+                <div class="w-full aspect-[16/10] bg-dark-900 rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center p-4">
+                    <img id="modal-img" src="" onerror="handleImageError(this, document.getElementById('modal-title').getAttribute('data-key'))" class="w-full h-full object-contain" alt="Monster Detail">
+                </div>
+                <!-- Description -->
+                <div class="space-y-4">
+                    <div>
+                        <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-1">设计概念:</h5>
+                        <p class="text-sm text-gray-300 leading-relaxed" id="modal-desc">详细概念描述...</p>
+                    </div>
+                    <div>
+                        <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-1">FLUX 提示词 (Prompt):</h5>
+                        <div class="bg-dark-900 border border-white/5 p-4 rounded-xl text-xs text-gray-400 font-mono leading-relaxed max-h-[120px] overflow-y-auto select-all" id="modal-prompt">
+                            提示词内容...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        // Data for Monsters detail view
+        const monsterData = {
+            dehidrasi: {
+                title: "Monster Dehidrasi (缺水/干裂怪物)",
+                img: "output/character_sheets/dehidrasi_monster.png",
+                desc: "印尼炎热干旱且无日常纯水摄入习惯时，该病菌怪物会在肝细胞中大肆繁衍。形象布满龟裂，代表干涸缺水的困境，其行为是吸干周围粉色健康肝细胞水分，促使其萎缩。",
+                prompt: "A character turnaround sheet of a cute dried-up light brown clay monster with cracked mud texture representing dehydration, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Cracked dry skin, parched peeling lips, sleepy thirsty eyes, holding a tiny cracked empty water cup. Clean solid light gray background, studio lighting, character model sheet, orthographic projection, highly detailed, 3D render, 8k."
+            },
+            toksin: {
+                title: "Monster Toksin (毒素堆积怪物)",
+                img: "output/character_sheets/toksin_monster.png",
+                desc: "水分子是排出化学毒素的搬运工。缺水后肝脏通道狭隘，该毒素小妖便得意洋洋地用其绿色恶臭粘液将肝脏细胞排毒口彻底堵死，表现为脸部痘痘增多、口臭与身体异常疲惫。",
+                prompt: "A character turnaround sheet of a cute dark green gooey sludge clay monster representing toxin accumulation in the liver, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Shiny slimy gooey body, releasing small neon-green chemical bubbles, smug greedy expression. Clean solid light gray background, studio lighting, character model sheet, orthographic projection, highly detailed, 3D render, 8k."
+            },
+            darah_kental: {
+                title: "Monster Darah Kental (粘稠血液/循环阻碍怪物)",
+                img: "output/character_sheets/darah_kental_monster.png",
+                desc: "血液缺水会使血粘度上升，该深红色拉丝胶状怪物会牢牢地粘附并拽住血管中正常运行的红细胞，让整体肝门静脉循环变慢，让供氧不足，使人感到四肢沉重、浑身发酸无力。",
+                prompt: "A character turnaround sheet of a cute dark red gelatinous syrup-like clay monster representing viscous slow blood circulation, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Thick sticky stretching glossy red clay body, sleepy expressions, slow posture. Clean solid light gray background, studio lighting, character model sheet, orthographic projection, highly detailed, 3D render, 8k."
+            },
+            gorengan: {
+                title: "Monster Gorengan (油炸食品/重油怪)",
+                img: "output/character_sheets/gorengan_monster.png",
+                desc: "代表印尼当地人酷爱的廉价棕榈油油炸街边小吃（Gorengan）。油炸怪物身带黄金油炸外壳，怀里抱着棕榈油油桶，疯狂对健康的粉红肝细胞泼洒高温热油，促使毒素沉积并带来上火（Panas Dalam）。",
+                prompt: "A character turnaround sheet of a cute golden brown crispy fried food clay monster holding a palm oil tank, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Oily glossy crispy textures, naughty smile, dripping oil effects. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            },
+            rebahan: {
+                title: "Monster Rebahan (懒散久坐怪)",
+                img: "output/character_sheets/rebahan_monster.png",
+                desc: "形象来自印尼对“沙发土豆”或“懒散瘫倒族”的称呼——Kaum Rebahan。该怪物与沉重的灰色懒人沙发融为一体，手里捧着高油高脂的薯片，不断释放蓝色慢速能量波，降低肝脏的新陈代谢速度。",
+                prompt: "A character turnaround sheet of a cute dark gray and soft blue lazy clay monster merged with a beanbag, holding potato chips, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Sluggish heavy lazy posture, sleepy eyes. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            },
+            sugar: {
+                title: "Monster Sugar (高糖饮料怪)",
+                img: "output/character_sheets/sugar_monster.png",
+                desc: "代表东南亚盛行的极度甜腻饮品（如咖啡加大量炼乳、超甜Es Teh等）。形象为一身粉色硬质糖浆外衣，周身飘浮彩色糖粒，狂妄地堵住健康的肝窦细孔，让高糖分子被动囤积成脂肪肝。",
+                prompt: "A character turnaround sheet of a cute bright pink sticky syrup candy clay monster representing high sugar, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Glossy sugar glaze coat, floating colorful sprinkles, proud energetic expression. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            },
+            fat: {
+                title: "Monster Fat (脂肪肝堆积怪)",
+                img: "output/character_sheets/fat_monster.png",
+                desc: "由于不健康的高脂肪膳食习惯导致的脂肪微粒沉积化身。其外形臃肿、怀里搂着整块黄油，在血管内部到处涂抹黏稠的黄色脂肪脂，直接造成肝包膜压力增高并减慢毒素运出。",
+                prompt: "A character turnaround sheet of a chubby pale yellow clay monster representing fat accumulation, holding a block of butter, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Heavy clumsy posture, sleepy droopy eyes. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            },
+            late_night: {
+                title: "Monster Late Night (深夜熬夜怪)",
+                img: "output/character_sheets/late_night_monster.png",
+                desc: "由于深夜经常刷手机或夜生活丰富，导致肝脏排毒时间（印尼深夜）遭到掠夺。形象为带黑眼圈的猫头鹰粘土玩偶，打着哈欠，手拿发亮的电子板，用发光的紫红电线将肝细胞勒紧束缚。",
+                prompt: "A character turnaround sheet of a cute dark purple clay monster representing late night and sleep deprivation, resembling a sleepy owl with dark eye circles, holding a glowing smartphone screen, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Yawning expression, tired posture. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            },
+            internal_heat: {
+                title: "Monster Internal Heat (体内上火怪)",
+                img: "output/character_sheets/internal_heat_monster.png",
+                desc: "体内阴阳失调、虚火旺盛的具象化。怒目圆睁的红橙色小人，口鼻之间吐出灼热的废气，手拿警告标记，正在烤红烘干肝组织粘膜，引起“上火（Nóng trong người / Panas Dalam）”等临床特征。",
+                prompt: "A character turnaround sheet of an angry red-orange clay monster representing internal heat, Pixar style, claymation texture. The sheet shows three views of the same character side-by-side: front view, side view, and back view. Glowing fire sparkles on head, angry facial expression, smoke puffing from nose. Clean solid light gray background, studio lighting, character model sheet, 3D render, 8k."
+            }
+        };
+
+        // Fallback prompts for Scenes in case local files are missing
+        const scenePrompts = {
+            anatomy_cutaway: "A cinematic 3D medical animation showing a clean dissected cutaway view of the upper right abdomen of a young Indonesian male torso, camera zooming into the liver. The 3D liver is dark reddish-brown, slightly dry, volumetric lighting, unreal engine 5 render, extremely detailed, 4k resolution.",
+            protection_stream: "Cinematic 3D animation, a glowing clear transparent amber golden liquid stream like a powerful soothing waterfall flushing through a micro liver cell environment, washing away green toxins, studio lighting, cozy healing vibes, 4k.",
+            dissected_torso: "A 3D dissected human torso showing internal organs with focus on the liver and gallbladder, scientific illustration, high-tech laboratory lighting, clean dark background, 3D render, highly detailed, 8k."
+        };
+
+        // Handle Image Load Errors dynamically using Pollinations AI cloud URLs
+        function handleImageError(imgElement, key) {
+            console.log("Image failed to load: " + imgElement.src + ". Redirecting to cloud rendering...");
+            let promptText = "";
+            if (monsterData[key]) {
+                promptText = monsterData[key].prompt;
+            } else if (scenePrompts[key]) {
+                promptText = scenePrompts[key];
+            } else {
+                promptText = "A beautiful 3D abstract fluid shape representing biotechnology, dark background, Pixar style claymation, 8k";
+            }
+            imgElement.src = "https://image.pollinations.ai/prompt/" + encodeURIComponent(promptText) + "?width=800&height=500&nologo=true";
+            // Prevent infinite loop if cloud image also fails
+            imgElement.onerror = function() {
+                this.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80";
+            };
+        }
+
+        function handleSceneError(imgElement, key) {
+            handleImageError(imgElement, key);
+        }
+
+        // Handle Video Load Errors (when sharing page standalone without video files)
+        function handleVideoError(videoElement, filename) {
+            const container = videoElement.parentElement;
+            const overlay = container.querySelector('.video-error-overlay');
+            if (overlay) {
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        // Data for Scripts Showcases
+        const scriptShots = {
+            1: {
+                duration: "0 - 5 SECONDS",
+                prompt: "电影级的3D医学动画。镜头从一个年轻印尼男性的右上腹部特写开始，然后通过皮肤上干净的剖面窗口快速放大（微观推镜头）进入肝脏。3D肝脏呈暗红褐色，表面干燥并带有一些干裂的细纹，微微颤抖。昏暗、戏剧性的低光环境，虚幻引擎5渲染，极高细节，4K分辨率。",
+                vo: "Awas! Kebiasaan jarang minum air putih bisa bikin sel hatimu kekeringan and diserang 3 monster ini!",
+                translation: "小心！不爱喝水会让你肝细胞干枯，并遭到这3个怪物的袭击！",
+                subtitle: "Awas! Kebiasaan jarang minum air putih bisa bikin sel hatimu kekeringan and diserang 3 monster ini!"
+            },
+            2: {
+                duration: "5 - 15 SECONDS",
+                prompt: "微观肝细胞内部的3D角色动画。一个可爱的、浅褐色、身上布满龟裂泥土纹路的干瘪粘土怪物（粘土动画风格），嘴唇干裂，耷拉着焦渴的双眼，拿着一个破旧的空水杯，把周围健康的粉色肝细胞吸收得干瘪起皱。充满趣味但又带有警示感的氛围，电影级影棚灯光，皮克斯风格，3D渲染，8k。",
+                vo: "Pertama, Monster Dehidrasi! Dia menyerap kelembapan sel hatimu hingga kering and mengkerut!",
+                translation: "首先是脱水怪物！它吸干你肝细胞的水分，直到细胞干瘪萎缩！",
+                subtitle: "Pertama, Monster Dehidrasi! Dia menyerap kelembapan sel hatimu hingga kering and mengkerut!"
+            },
+            3: {
+                duration: "15 - 25 SECONDS",
+                prompt: "微观肝细胞内部 the 3D角色动画。一个可爱的、暗绿色黏糊糊的粘液怪物（粘土动画风格），身上不断冒出绿色气泡，得意地堵在肝细胞的代谢通道口，将墨绿色的污泥涂抹在健康的粉色肝细胞上。极高细节，电影级光影，皮克斯风格，3D渲染，8k。",
+                vo: "Kedua, Monster Toksin! Tanpa air yang cukup, racun tubuh menumpuk and merusak fungsi penyaringan hati!",
+                translation: "第二个是毒素怪物！没有足够的水分，体内毒素堆积，破坏肝脏的过滤功能！",
+                subtitle: "Kedua, Monster Toksin! Tanpa air yang cukup, racun tubuh menumpuk and merusak fungsi penyaringan hati!"
+            },
+            4: {
+                duration: "25 - 35 SECONDS",
+                prompt: "微观肝细胞内部的3D角色动画。一个可爱的、深红色胶状黏稠的怪物（粘土动画风格），四肢像拉丝的糖浆一样沉重，在微小的血管通道里吃力挪动，死死粘住红细胞，阻止循环。戏剧性的高对比度光影，极高细节，皮克斯风格，3D渲染，8k。",
+                vo: "Dan ketiga, Monster Darah Kental! Sirkulasi melambat, membuat pasokan nutrisi to hati terhambat and badan terasa pegal!",
+                translation: "第三个是粘稠血液怪物！血液循环变慢，导致肝脏营养供应受阻，身体感到酸痛疲惫！",
+                subtitle: "Dan ketiga, Monster Darah Kental! Sirkulasi melambat, membuat pasokan nutrisi to hati terhambat and badan terasa pegal!"
+            },
+            5: {
+                duration: "35 - 45 SECONDS",
+                prompt: "电影级的3D动画。一股发光的、清澈透亮的琥珀金色液体流（代表草本茶）像一股强大而清爽的瀑布一样，流入微观的肝细胞环境中。金色液体冲刷着干燥干裂的泥土怪物、暗绿色的粘液怪物和深红色的胶状怪物，将它们包裹在温暖、治愈的光芒中。明亮、清爽的影棚灯光，4K分辨率。",
+                vo: "Jangan dibiarkan! Lawan mereka dengan Teh Herbal Sembilan Rasa Tong Ren Tang! Solusi alami hidrasi and detoksifikasi hatimu!",
+                translation: "别不管它！用同仁堂九味草本茶击退它们！你肝脏补水排毒的天然解决方案！",
+                subtitle: "Jangan dibiarkan! Lawan mereka dengan Teh Herbal Sembilan Rasa Tong Ren Tang! Solusi alami hidrasi and detoksifikasi hatimu!"
+            },
+            6: {
+                duration: "45 - 52 SECONDS",
+                prompt: "电影级的3D动画。在琥珀金色液体的冲刷下，干裂怪物湿润软化并融化，毒素怪物和粘稠血液怪物缩成小气泡破裂消失。周围的肝脏组织瞬间恢复饱满、湿润、发光的粉红色，并稳定搏动。治愈且令人极度舒适的氛围，4K分辨率。",
+                vo: "Kombinasi Dandelion and Krisan aktif membilas racun, melancarkan aliran darah, and menyegarkan sel hati!",
+                translation: "蒲公英和菊花组合活性冲刷毒素，促进血液流动，让肝细胞重新焕发活力！",
+                subtitle: "Kombinasi Dandelion and Krisan aktif membilas racun, melancarkan aliran darah, and menyegarkan sel hati!"
+            },
+            7: {
+                duration: "52 - 60 SECONDS",
+                prompt: "电影级眼部中景镜头。一位充满活力的25岁印尼年轻女性，皮肤红润，双眼有神，坐在明亮现代的客厅里。她从玻璃杯中喝了一口金黄色的草本茶，并对镜头温暖地微笑。在她身旁的木桌上放着一盒精美的同仁堂九味草本茶。温暖的自然阳光，电影级景深，4K分辨率，写实风格，印尼环境。",
+                vo: "Yuk, cukupi kebutuhan cairan hatimu! Klik keranjang kuning di bawah untuk dapatkan promo hari ini!",
+                translation: "来吧，为你的肝脏补充充足的水分！点击下方小黄车，抢购今日特惠福利！",
+                subtitle: "Yuk, cukupi kebutuhan cairan hatimu! Klik keranjang kuning di bawah untuk dapatkan promo hari ini!"
+            }
+        };
+
+        // Filter monsters by tab
+        function filterMonsters(category) {
+            const tabs = document.querySelectorAll('.monster-tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-brand-500', 'text-white');
+                tab.classList.add('bg-white/5', 'text-gray-400', 'hover:text-white', 'hover:bg-white/10');
+            });
+            
+            event.target.classList.remove('bg-white/5', 'text-gray-400', 'hover:text-white', 'hover:bg-white/10');
+            event.target.classList.add('bg-brand-500', 'text-white');
+
+            const cards = document.querySelectorAll('.monster-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const cardCat = card.getAttribute('data-category');
+                    if (cardCat === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Script Showcase shot update
+        function showScriptShot(shotId) {
+            const navContainer = document.getElementById('script-nav-container');
+            const buttons = navContainer.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.className = "w-full text-left p-3.5 rounded-xl border border-white/5 hover:bg-white/5 text-gray-400 hover:text-white transition-all flex justify-between items-center text-xs";
+            });
+
+            const activeBtn = document.getElementById(`shot-btn-${shotId}`);
+            activeBtn.className = "w-full text-left p-3.5 rounded-xl border border-brand-500/30 bg-brand-500/10 text-brand-400 font-medium transition-all flex justify-between items-center text-xs";
+
+            const data = scriptShots[shotId];
+            const contentContainer = document.getElementById('script-content-container');
+            
+            contentContainer.innerHTML = `
+                <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                    <span class="px-3 py-1 rounded bg-brand-500/20 text-brand-400 text-xs font-mono border border-brand-500/30">${data.duration}</span>
+                    <span class="text-xs text-gray-500 font-mono">SHOT_${shotId}_METADATA</span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">中文 Seedance 2.0 Prompt:</h5>
+                        <div class="bg-dark-900 border border-white/5 p-4 rounded-2xl text-xs text-gray-300 font-mono leading-relaxed select-all">
+                            ${data.prompt}
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">印尼语旁白配音 (VO):</h5>
+                            <div class="bg-brand-500/5 border border-brand-500/10 p-4 rounded-2xl text-sm text-brand-400 font-medium">
+                                ${data.vo}
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="text-xs text-gray-500 font-bold uppercase tracking-wider font-mono mb-2">旁白中文翻译:</h5>
+                            <div class="bg-dark-900 border border-white/5 p-4 rounded-2xl text-xs text-gray-400">
+                                ${data.translation}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-950 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
+                            <i class="fa-solid fa-file-export"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-500 font-mono font-bold">EXTRACTED SUBTITLE (output/scripts/)</div>
+                            <div class="text-xs text-white font-mono" id="current-subtitle-txt">${data.subtitle}</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">LINE ${shotId}</span>
+                </div>
+            `;
+        }
+
+        // Modal triggers
+        function openMonsterModal(monsterKey) {
+            const data = monsterData[monsterKey];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-title').setAttribute('data-key', monsterKey);
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-img').onerror = function() {
+                handleImageError(this, monsterKey);
+            };
+            document.getElementById('modal-desc').innerText = data.desc;
+            document.getElementById('modal-prompt').innerText = data.prompt;
+            
+            const modal = document.getElementById('monster-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMonsterModal() {
+            const modal = document.getElementById('monster-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('monster-modal');
+            if (event.target == modal) {
+                closeMonsterModal();
+            }
+        }
+    </script>
+</body>
+</html>
