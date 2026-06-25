@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 | GMVMax 投放优化</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#00C9D2',
+                            pink: '#E91E63',
+                            dark: '#1a1a2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: #1a1a2e;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Card */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Pill */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .pill-cyan { background: rgba(0,201,210,0.1); color: #00C9D2; }
+        .pill-pink { background: rgba(233,30,99,0.1); color: #E91E63; }
+        .pill-gray { background: #f0f2f5; color: #666; }
+
+        /* Accent text */
+        .text-cyan { color: #00C9D2; }
+        .text-pink { color: #E91E63; }
+
+        /* Section label */
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* Number */
+        .stat-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: #e8eaed;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #00C9D2, #E91E63);
+        }
+
+        /* Campaign card */
+        .campaign-card {
+            border: 1px solid #e8eaed;
+            transition: all 0.2s;
+        }
+        .campaign-card:hover {
+            border-color: rgba(0,201,210,0.3);
+        }
+
+        /* Timeline */
+        .timeline-line {
+            width: 2px;
+            background: #e8eaed;
+            position: absolute;
+            left: 4px;
+            top: 12px;
+            bottom: 0;
+        }
+
+        /* Nav */
+        .nav-link {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .nav-link:hover, .nav-link.active { color: #00C9D2; }
+
+        /* Table */
+        table { border-collapse: collapse; width: 100%; }
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e8eaed;
+        }
+        td {
+            padding: 12px;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #fafbfc; }
+
+        /* Section divider */
+        .divider {
+            height: 1px;
+            background: #e8eaed;
+            margin: 0 -24px;
+        }
+
+        /* Flag */
+        .flag { font-size: 16px; }
+
+        /* Metric block */
+        .metric-block {
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Tactic box */
+        .tactic-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px;
+            border-left: 3px solid #00C9D2;
+        }
+
+        /* Step number */
+        .step-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00C9D2, #E91E63);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #00C9D2, #E91E63);">
+                    <i class="fa-solid fa-play text-white text-xs"></i>
+                </div>
+                <div>
+                    <div class="text-sm font-bold" style="color:#1a1a2e">GMVMax 投放优化</div>
+                    <div class="text-[9px] text-gray-400 font-mono tracking-widest uppercase">Vietnam · Indonesia</div>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#account" class="nav-link">账户总览</a>
+                <a href="#campaigns" class="nav-link">核心案例</a>
+                <a href="#optimization" class="nav-link">优化动作</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="pill pill-cyan">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
+                    GMVMax · 双市场
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 1: 账户总览
+    ══════════════════════════════════════════════ -->
+    <section id="account" class="max-w-6xl mx-auto px-6 py-12">
+
+        <!-- Header -->
+        <div class="mb-8">
+            <div class="section-label mb-2">Account Overview</div>
+            <h1 class="text-2xl font-extrabold mb-1" style="color:#1a1a2e">
+                越南 + 印尼双市场账户总览
+            </h1>
+            <p class="text-sm text-gray-500">
+                操盘 GMVMax 全托管型投放，主投护肝 / 心脑 / 肺炎三大品类，TikTok Shop 全链路优化。
+            </p>
+        </div>
+
+        <!-- Main KPIs -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="card p-5">
+                <div class="text-xs text-gray-500 mb-2">月均消耗</div>
+                <div class="stat-num text-2xl font-bold" style="color:#1a1a2e">$60,050</div>
+                <div class="text-xs text-gray-400 mt-1">越南 $28.2K · 印尼 $31.8K</div>
+            </div>
+            <div class="card p-5">
+                <div class="text-xs text-gray-500 mb-2">月均 GMV</div>
+                <div class="stat-num text-2xl font-bold text-cyan">$153,756</div>
+                <div class="text-xs text-gray-400 mt-1">越南 $77.8K · 印尼 $75.9K</div>
+            </div>
+            <div class="card p-5">
+                <div class="text-xs text-gray-500 mb-2">月均订单</div>
+                <div class="stat-num text-2xl font-bold" style="color:#1a1a2e">29,788</div>
+                <div class="text-xs text-gray-400 mt-1">越南 14,862 · 印尼 14,926</div>
+            </div>
+            <div class="card p-5">
+                <div class="text-xs text-gray-500 mb-2">综合 ROAS</div>
+                <div class="stat-num text-2xl font-bold text-cyan">2.76x</div>
+                <div class="text-xs text-gray-400 mt-1">越南 3.08x · 印尼 2.48x</div>
+            </div>
+        </div>
+
+        <!-- Vietnam vs Indonesia -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+            <!-- 越南 -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between mb-5">
+                    <div class="flex items-center gap-2">
+                        <span class="flag">🇻🇳</span>
+                        <span class="font-bold text-base" style="color:#1a1a2e">越南市场</span>
+                        <span class="pill pill-cyan text-[10px]">ROAS 3.08x</span>
+                    </div>
+                    <span class="text-xs text-gray-400">护肝为主</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mb-5">
+                    <div class="metric-block">
+                        <div class="stat-num text-lg font-bold">$28,214</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">月消耗</div>
+                    </div>
+                    <div class="metric-block">
+                        <div class="stat-num text-lg font-bold text-cyan">$77,838</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">月GMV</div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">AOV</span>
+                        <span class="stat-num font-semibold">$5.24</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">CPA</span>
+                        <span class="stat-num font-semibold">$1.90</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">月订单</span>
+                        <span class="stat-num font-semibold">14,862</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="flex justify-between text-xs text-gray-500 mb-1.5">
+                        <span>ROAS 效率</span>
+                        <span class="stat-num font-semibold">3.08 / 5.0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:61.6%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 印尼 -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between mb-5">
+                    <div class="flex items-center gap-2">
+                        <span class="flag">🇮🇩</span>
+                        <span class="font-bold text-base" style="color:#1a1a2e">印尼市场</span>
+                        <span class="pill pill-gray text-[10px]">ROAS 2.48x</span>
+                    </div>
+                    <span class="text-xs text-gray-400">心脑 + 护肝</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mb-5">
+                    <div class="metric-block">
+                        <div class="stat-num text-lg font-bold">$31,836</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">月消耗</div>
+                    </div>
+                    <div class="metric-block">
+                        <div class="stat-num text-lg font-bold text-cyan">$75,918</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">月GMV</div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">AOV</span>
+                        <span class="stat-num font-semibold">$5.09</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">CPA</span>
+                        <span class="stat-num font-semibold">$2.13</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">月订单</span>
+                        <span class="stat-num font-semibold">14,926</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="flex justify-between text-xs text-gray-500 mb-1.5">
+                        <span>ROAS 效率</span>
+                        <span class="stat-num font-semibold">2.48 / 5.0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:49.6%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key insight -->
+        <div class="card mt-5 p-5 flex items-start gap-4" style="border-left: 4px solid #00C9D2;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(0,201,210,0.1);">
+                <i class="fa-solid fa-lightbulb text-base text-cyan"></i>
+            </div>
+            <div>
+                <div class="text-sm font-bold mb-1" style="color:#1a1a2e">核心发现：越南 ROAS 比印尼高 24%</div>
+                <div class="text-xs text-gray-500 leading-relaxed">
+                    越南 CPA <b>$1.90</b>（比印尼低 11%）是核心优势。
+                    越南下一步：<b>提升 AOV 10-15% → ROAS 可突破 3.5x</b>。
+                    印尼下一步：<b>压低 CPA 到 $1.6 以下</b>是当前最直接的 ROAS 杠杆。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 2: 核心案例
+    ══════════════════════════════════════════════ -->
+    <section id="campaigns" class="max-w-6xl mx-auto px-6 py-12">
+
+        <div class="mb-8">
+            <div class="section-label mb-2">Campaign Case Studies</div>
+            <h2 class="text-2xl font-extrabold mb-1" style="color:#1a1a2e">3 个核心投放战役</h2>
+            <p class="text-sm text-gray-500">选 ROI 最优 / 打法最有代表性的 3 个 Campaign</p>
+        </div>
+
+        <div class="space-y-4">
+
+            <!-- Campaign 1: VN-护肝-001 -->
+            <div class="campaign-card card p-6">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
+                    <div class="flex items-center gap-3">
+                        <span class="flag">🇻🇳</span>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-bold" style="color:#1a1a2e">VN-护肝-001</span>
+                                <span class="pill pill-cyan text-[10px]">越南 · 护肝</span>
+                            </div>
+                            <div class="text-xs text-gray-400">2025.03.12 — 2025.05.31 · GMVMax</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold text-cyan">2.40x</div>
+                            <div class="text-[10px] text-gray-400">ROAS</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">$12,239</div>
+                            <div class="text-[10px] text-gray-400">GMV</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">2,137</div>
+                            <div class="text-[10px] text-gray-400">订单</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-5">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$6,222</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Spend</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$5.73</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">AOV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$2.91</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">CPA</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">80天</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">周期</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$77.5</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">日均消耗</div>
+                    </div>
+                </div>
+
+                <div class="tactic-box">
+                    <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-2">打法核心</div>
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <b>模仿竞对开头视频 → 微创新改进</b>，两天不到就爆量。
+                        核心逻辑：不自己造 Hook，直接抄爆款的 0-3s 开头，
+                        用自己的产品 / 场景替换后半段。
+                        <b>越南护肝赛道竞对素材密度低</b>，经过市场验证的开头 + 本地化场景 = 极低的试错成本。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 2: ID-心脑-001 -->
+            <div class="campaign-card card p-6" style="border-color: rgba(233,30,99,0.2);">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
+                    <div class="flex items-center gap-3">
+                        <span class="flag">🇮🇩</span>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-bold" style="color:#1a1a2e">ID-心脑-001</span>
+                                <span class="pill pill-pink text-[10px]">印尼 · 心脑</span>
+                                <span class="pill pill-cyan text-[10px]">
+                                    <i class="fa-solid fa-star text-[8px]"></i> ROI 最高
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-400">2025.04.10 — 2025.05.31 · GMVMax</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold text-pink">4.18x</div>
+                            <div class="text-[10px] text-gray-400">ROAS</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">$21,221</div>
+                            <div class="text-[10px] text-gray-400">GMV</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">8,088</div>
+                            <div class="text-[10px] text-gray-400">订单</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-5">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$5,079</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Spend</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$2.62</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">AOV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold text-cyan">$0.63</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">CPA（极低）</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">51天</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">周期</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$99.6</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">日均消耗</div>
+                    </div>
+                </div>
+
+                <div class="tactic-box" style="border-left-color: #E91E63;">
+                    <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-2">打法核心</div>
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <b>模仿竞对病症方向 → 快速测出起量素材</b>。
+                        核心逻辑：不抄具体素材，而是抄竞对的"病症切入点"——
+                        比如竞对打"头痛眩晕"，我就打"记忆力下降"，测三天立马出起量素材。
+                        <b>CPA $0.63 是目前最低成本获客</b>，但 AOV $2.62 偏低是下一个优化杠杆。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 3: ID-护肝-002 -->
+            <div class="campaign-card card p-6" style="border-color: rgba(0,201,210,0.3);">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
+                    <div class="flex items-center gap-3">
+                        <span class="flag">🇮🇩</span>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-bold" style="color:#1a1a2e">ID-护肝-002</span>
+                                <span class="pill pill-pink text-[10px]">印尼 · 护肝</span>
+                                <span class="pill pill-cyan text-[10px]">
+                                    <i class="fa-solid fa-fire text-[8px]"></i> 优化经典
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-400">2025.05.12 — 2025.05.31 · GMVMax</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">2.40x</div>
+                            <div class="text-[10px] text-gray-400">稳定态 ROAS</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold text-cyan">$116,015</div>
+                            <div class="text-[10px] text-gray-400">GMV</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="stat-num text-xl font-bold">21,069</div>
+                            <div class="text-[10px] text-gray-400">订单</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-5">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$50,783</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">总 Spend</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$5.50</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">AOV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">$2.41</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">CPA（稳定态）</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold">20天</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">周期</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="stat-num text-sm font-bold text-cyan">500+</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">日均订单（稳态）</div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="tactic-box">
+                    <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-3">优化全过程</div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="step-num flex-shrink-0 mt-0.5">1</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 mb-0.5">Day 1 · 低曝光素材</div>
+                                <div class="text-xs text-gray-600">一条低曝光素材，ROI 出价偏低，曝光量几乎为零。</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="step-num flex-shrink-0 mt-0.5">2</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 mb-0.5">Day 2 · 低 ROI 出价抢曝光</div>
+                                <div class="text-xs text-gray-600">
+                                    <b>主动降 ROI 出价</b>用亏损换曝光，第二天直接爆量出 <b class="text-pink">400+ 单</b>，
+                                    但 ROI 极差，属于"烧钱换规模"阶段。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="step-num flex-shrink-0 mt-0.5">3</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 mb-0.5">Day 3-5 · 拉 ROI 曲线</div>
+                                <div class="text-xs text-gray-600">
+                                    <b>逐步调高 ROI 出价目标</b>，每 6 小时观察一次消耗和订单，
+                                    控制 CPI 不超过 $3.5，观察 ROAS 是否回升。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="step-num flex-shrink-0 mt-0.5 bg-green-500">4</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 mb-0.5">Day 5+ · 稳定态</div>
+                                <div class="text-xs text-gray-600">
+                                    <b>ROI 拉回赚钱区间</b>。至今保持日均 <b class="text-cyan">500 单</b>，
+                                    峰值 <b class="text-cyan">1,400 单/天</b>，ROAS 稳定在 <b>2.5x</b>。
+                                    极其稳定的长生命周期广告计划。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Summary table -->
+        <div class="card mt-6 overflow-hidden">
+            <div class="p-4 border-b border-gray-100">
+                <div class="text-sm font-bold" style="color:#1a1a2e">战役横向对比</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>国家</th>
+                        <th>品类</th>
+                        <th>Spend</th>
+                        <th>GMV</th>
+                        <th>订单</th>
+                        <th>ROAS</th>
+                        <th>AOV</th>
+                        <th>CPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-semibold">VN-护肝-001</td>
+                        <td>🇻🇳</td>
+                        <td class="text-gray-500">护肝</td>
+                        <td class="stat-num">$6,222</td>
+                        <td class="stat-num">$12,239</td>
+                        <td class="stat-num">2,137</td>
+                        <td class="stat-num text-cyan font-semibold">2.40x</td>
+                        <td class="stat-num">$5.73</td>
+                        <td class="stat-num">$2.91</td>
+                    </tr>
+                    <tr style="background:rgba(233,30,99,0.03);">
+                        <td class="font-semibold">ID-心脑-001 <i class="fa-solid fa-star text-pink text-[8px]"></i></td>
+                        <td>🇮🇩</td>
+                        <td class="text-gray-500">心脑</td>
+                        <td class="stat-num">$5,079</td>
+                        <td class="stat-num">$21,221</td>
+                        <td class="stat-num">8,088</td>
+                        <td class="stat-num text-pink font-bold">4.18x</td>
+                        <td class="stat-num">$2.62</td>
+                        <td class="stat-num text-cyan">$0.63</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">ID-护肝-002 <i class="fa-solid fa-fire text-pink text-[8px]"></i></td>
+                        <td>🇮🇩</td>
+                        <td class="text-gray-500">护肝</td>
+                        <td class="stat-num">$50,783</td>
+                        <td class="stat-num">$116,015</td>
+                        <td class="stat-num">21,069</td>
+                        <td class="stat-num font-semibold">2.40x</td>
+                        <td class="stat-num">$5.50</td>
+                        <td class="stat-num">$2.41</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 3: 优化动作
+    ══════════════════════════════════════════════ -->
+    <section id="optimization" class="max-w-6xl mx-auto px-6 py-12">
+
+        <div class="mb-8">
+            <div class="section-label mb-2">Optimization Actions</div>
+            <h2 class="text-2xl font-extrabold mb-1" style="color:#1a1a2e">核心优化动作</h2>
+            <p class="text-sm text-gray-500">三个最有效的优化杠杆，每一个都直接带动 ROAS 提升。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            <div class="card p-6">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(0,201,210,0.1);">
+                    <i class="fa-solid fa-magnifying-glass text-base text-cyan"></i>
+                </div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">杠杆 01</div>
+                <h3 class="font-bold mb-3" style="color:#1a1a2e">竞对素材逆向拆解</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                    不自己造 Hook，系统化扫描竞对跑量素材，
+                    <b>拆解其 0-3s 开头的"情绪触发模式"</b>，
+                    用自己的产品替换后半段，快速测试。
+                </p>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">应用案例</span>
+                        <span class="font-mono font-semibold">VN-护肝-001 / ID-心脑-001</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">效果</span>
+                        <span class="stat-num text-cyan font-semibold">两天内爆量</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-6">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(233,30,99,0.1);">
+                    <i class="fa-solid fa-chart-line text-base text-pink"></i>
+                </div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">杠杆 02</div>
+                <h3 class="font-bold mb-3" style="color:#1a1a2e">ROI 出价曲线管理</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                    GMVMax 素材起量后，<b>用"低 ROI 出价换曝光"</b>让素材跑起来，
+                    观察 CPI 和订单密度，一旦发现爆量迹象立即拉 ROI 目标，
+                    <b>5 天内把亏损曲线拉回盈利区间</b>。
+                </p>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">应用案例</span>
+                        <span class="font-mono font-semibold">ID-护肝-002（救活）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">效果</span>
+                        <span class="stat-num text-pink font-semibold">峰值 1,400 单/天</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-6">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(0,201,210,0.1);">
+                    <i class="fa-solid fa-layer-group text-base text-cyan"></i>
+                </div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">杠杆 03</div>
+                <h3 class="font-bold mb-3" style="color:#1a1a2e">AOV 分层测试</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                    印尼心脑 CPA $0.63 极低，但 AOV 只有 $2.62，
+                    <b>通过调整 CTA 场景（单瓶 vs 多瓶优惠）</b>，
+                    提升客单价，AOV 每提升 $0.5 → ROAS 直接 +0.2x。
+                </p>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">应用案例</span>
+                        <span class="font-mono font-semibold">ID-心脑-001</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">目标</span>
+                        <span class="stat-num text-cyan font-semibold">AOV $3.2+ → ROAS 5x</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Next steps -->
+        <div class="card mt-6 p-6">
+            <h3 class="font-bold mb-4" style="color:#1a1a2e">下一步优化空间</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="text-[10px] text-gray-400 uppercase mb-2">🇻🇳 越南</div>
+                    <div class="text-sm font-bold mb-2">提升日消耗量级</div>
+                    <div class="text-xs text-gray-500 leading-relaxed">
+                        从日均 $940 → 目标 $1,500+/天。
+                        路径：<b>增加护肝+心脑双品类素材</b>，扩品类不扩受众。
+                    </div>
+                    <div class="mt-2 text-[10px] font-mono text-cyan font-semibold">目标 ROAS: 3.5x+</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="text-[10px] text-gray-400 uppercase mb-2">🇮🇩 印尼</div>
+                    <div class="text-sm font-bold mb-2">AOV 带动 ROAS</div>
+                    <div class="text-xs text-gray-500 leading-relaxed">
+                        从 AOV $5.09 → 目标 $6.50+。
+                        路径：<b>测试多瓶装组合价</b>（3瓶 vs 单瓶），提升客单价。
+                    </div>
+                    <div class="mt-2 text-[10px] font-mono text-cyan font-semibold">目标 ROAS: 3.0x+</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="text-[10px] text-gray-400 uppercase mb-2">双市场</div>
+                    <div class="text-sm font-bold mb-2">引入再营销包</div>
+                    <div class="text-xs text-gray-500 leading-relaxed">
+                        目前未做再营销分层。
+                        路径：<b>首购用户 7 天后再触达</b>，用护肺/尿酸等新品类素材扩量。
+                    </div>
+                    <div class="mt-2 text-[10px] font-mono text-cyan font-semibold">目标: LTV +25%</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 mt-12">
+        <div class="max-w-6xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <div class="font-bold text-sm" style="color:#1a1a2e">GMVMax 投放优化 · 越南 + 印尼</div>
+                    <div class="text-xs text-gray-400 mt-1">护肝 / 心脑 / 肺炎 · 全闭环 TikTok Shop · 月耗 $60K</div>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-gray-500 font-mono">
+                    <span>🇻🇳 越南 ROAS <strong class="text-cyan">3.08x</strong></span>
+                    <span class="text-gray-300">|</span>
+                    <span>🇮🇩 印尼 ROAS <strong class="text-gray-700">2.48x</strong></span>
+                </div>
+            </div>
+            <div class="text-center text-[10px] text-gray-400 mt-6 font-mono">
+                越南 $28,214 · 印尼 $31,836 · 综合 ROAS 2.76x · 月 GMV $153,756 · 月订单 29,788
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
